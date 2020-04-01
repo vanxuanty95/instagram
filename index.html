@@ -19,10 +19,12 @@
                 document.body.appendChild(canvas)
             });
 
-            var feed = new Instafeed({
+            var userFeed = new Instafeed({
+                get: 'user',
+                userId: 'nhifake',
                 accessToken: 'IGQVJWaUJucHUybVVxUjNmblFPN2lKa0o4TFBUb3FoUTlCVjRBdnJlVkxhUW1GZADJoa2FZAZA2wxWmgyZAWR1NFRmMGlycXdJVlJNQ0xwdnhlTWc1OUlnVm5LcTFtQU1fc1AybXdYZADhoUGo0c2ZAsOUIzMAZDZD'
             });
-            feed.run();
+            userFeed.run();
 
         }
     </script>
