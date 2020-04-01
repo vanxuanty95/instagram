@@ -267,7 +267,7 @@
 
     this._debug('renderData', 'hasTemplate', hasTemplate, 'hasRender', hasRender);
 
-    if (typeof items !== 'object' ||  (items == null && items.length <= 0)) {
+    if (typeof items !== 'object' ||  items == null || items.length <= 0) {
       return null;
     }
 
