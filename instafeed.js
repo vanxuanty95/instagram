@@ -114,7 +114,7 @@
         return;
       }
 
-      url = 'https://graph.instagram.com/me/media?fields=caption,id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token='+ token;
+      url = 'https://graph.instagram.com/17895695668004550/media?fields=caption,id,media_type,media_url,permalink,thumbnail_url,timestamp,username&access_token='+ token;
       scope._debug('onTokenReceived', 'request url', url);
 
       // make network request
