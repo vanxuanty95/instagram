@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script async="" src="http://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script type="text/javascript" src="instafeed.min.js"></script>
+</head>
+
+<body>
+
+    <div id="capture" style="padding: 10px; background: #f5da55">
+        <h4 style="color: #000; ">Hello world!</h4>
+    </div>
+    <div id="instafeed"></div>
+
+    <script>
+        window.onload = function () {
+            html2canvas(document.querySelector("#capture")).then(canvas => {
+                document.body.appendChild(canvas)
+            });
+
+            var feed = new Instafeed({
+                accessToken: 'IGQVJWaUJucHUybVVxUjNmblFPN2lKa0o4TFBUb3FoUTlCVjRBdnJlVkxhUW1GZADJoa2FZAZA2wxWmgyZAWR1NFRmMGlycXdJVlJNQ0xwdnhlTWc1OUlnVm5LcTFtQU1fc1AybXdYZADhoUGo0c2ZAsOUIzMAZDZD'
+            });
+            feed.run();
+
+        }
+    </script>
+
+</body>
+
+</html>
