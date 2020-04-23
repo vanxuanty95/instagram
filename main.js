@@ -121,9 +121,6 @@ $(document).ready(function() {
                     scale: 2,
                     allowTaint: true,
                     useCORS: true,
-                    removeContainer: true,
-                    backgroundColor: null,
-                    imageTimeout: 15000
                 }).then(function(canvas) {
                     canvas.id = "imageGenerated";
                     document.body.appendChild(canvas)
