@@ -1,0 +1,165 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic&subset=latin,vietnamese,latin-ext);
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #282828;
+    background: #fff;
+}
+
+.desibox {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    position: relative;
+    display: none;
+}
+
+.blurbg {
+    width: 1200px;
+    height: 1200px;
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.frame {
+    filter: blur(0px);
+    z-index: 2;
+    overflow: hidden;
+    height: 500px;
+    width: 300px;
+    border: 10px solid #000;
+    border-radius: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cover {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 135px;
+}
+
+.con {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.content {
+    border-radius: 20px;
+    background: #fff;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(230, 230, 230, 1) 100%);
+    width: 100%;
+    position: relative;
+    padding-top: 50px;
+}
+
+.avatar {
+    background-size: cover;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    border: 3px solid white;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 10px;
+}
+
+.detail {
+    padding: 0 4%;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 10px;
+    color: #222222;
+}
+
+h3 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    color: #555555;
+}
+
+p {
+    text-align: center;
+    font-style: italic;
+    border-bottom: 1px solid #ddd;
+    padding: 5px 0 10px;
+    font-size: 14px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 4%;
+}
+
+.gallery>div {
+    background-size: 160% auto;
+    background-position: center;
+    width: 28%;
+    margin-left: 4%;
+    margin-top: 4%;
+    border-radius: 5px;
+}
+
+.gallery>div:nth-child(3n) {
+    margin-right: 4%;
+}
+
+.gallery>div::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.nav {
+    height: 40px;
+    background: #fff;
+    border-radius: 20px;
+    background: #fff url(nav.png) no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
+#imageGenerated {
+    display: none;
+}
+
+img {
+    width: 200px;
+}
+
+#generateProgress {
+    width: 100%;
+    background-color: grey;
+}
+
+#progressBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+}
