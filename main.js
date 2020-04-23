@@ -117,7 +117,7 @@ $(document).ready(function() {
                 let urlFiltered = createImageWithFilter(document.getElementById('background_blur_img'))
                 $('#background_blur').attr("style", "background-image: url(" + urlFiltered + ")");
 
-                html2canvas(document.querySelector("#capture"), { scale: 1, allowTaint: true, useCORS: true }).then(function(canvas) {
+                html2canvas(document.querySelector("#capture"), { scale: 2, allowTaint: true, useCORS: true }).then(function(canvas) {
                     canvas.id = "imageGenerated";
                     document.body.appendChild(canvas)
                     $("#downloadBtn").attr("disabled", false);

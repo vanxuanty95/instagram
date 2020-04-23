@@ -163,3 +163,7 @@ img {
     height: 30px;
     background-color: green;
 }
+
+.html2canvas-container {
+    left: -4000px;
+}
