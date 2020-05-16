@@ -14,7 +14,7 @@ function getImage($username, $description)
     $top    = 0;
     $left   = 0;
     $request = $client->getMessageFactory()->createCaptureRequest('http://instagram.nakamadressup.com/index.php?controller=profile&action=profile&username='.$username.'&description='.$description, 'GET');
-    $request->setOutputFile('save/file.jpg');
+    $request->setOutputFile('./save/file.jpg');
     $request->setViewportSize($width, $height);
     $request->setCaptureDimensions($width, $height, $top, $left);
     $request->setTimeout(10000);
