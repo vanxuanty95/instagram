@@ -10,7 +10,7 @@ class ProfileModel
         $this->description = $description;
     }
 
-    function set($username, $description)
+    static function set($username, $description)
     {
         return new ProfileModel($username, $description);
     }
