@@ -42,6 +42,7 @@ $(document).ready(function() {
         $('#imageGenerated').remove();
         $('#canvas_temp').remove();
         $("#imageResized").css("display", "none");
+        $("#capture").css("display", "none");
     }
 
     function getInfomation(username, description) {
@@ -118,7 +119,7 @@ $(document).ready(function() {
                 $('#background_blur').attr("style", "background-image: url(" + urlFiltered + ")");
 
                 html2canvas(document.querySelector("#capture"), {
-                    scale: 2,
+                    scale: 1,
                     allowTaint: true,
                     useCORS: true,
                 }).then(function(canvas) {
@@ -127,8 +128,7 @@ $(document).ready(function() {
                     $("#downloadBtn").attr("disabled", false);
                     $("#capture").css("display", "none");
                     $("#formGenerateImageSubmitButton").attr("disabled", false);
-                    $("#imageGenerated").css("display", "none");
-                    convertCanvasToImage();
+                    //convertCanvasToImage();
                     frame(100);
                 });
             }
@@ -149,6 +149,7 @@ $(document).ready(function() {
     }
 
     function convertCanvasToImage() {
+        $("#imageGenerated").css("display", "none");
         let can = document.getElementById('imageGenerated');
         let image = new Image();
         image.src = can.toDataURL("image/png", 1);
