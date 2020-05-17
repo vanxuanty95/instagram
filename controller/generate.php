@@ -8,7 +8,7 @@ class GenerateController extends BaseController
 
     function __construct()
     {
-        $this->file = 'profile';
+        $this->file = 'generate';
     }
 
     public function generate()
