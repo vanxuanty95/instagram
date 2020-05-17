@@ -1,9 +1,4 @@
 $(document).ready(function () {
-    var maximumImages = 7;
-    var WIDTH = 1080;
-    var HEIGHT = 1080;
-    var STACK = [];
-
     $("#formGenerateImage").submit(function (event) {
         event.preventDefault();
         let username = $('#username_input').val().trim();
@@ -13,7 +8,21 @@ $(document).ready(function () {
             return;
         }
         $("#formGenerateImageSubmitButton").attr("disabled", true);
-        run(username, decription);
+        getInfomation(username, decription);
     });
+
+    function getInfomation(username, description) {
+        $.ajax({
+            type: 'GET',
+            url: 'http://instagram.nakamadressup.com/index.php?controller=generate&action=generate&username=' + username + "&description=" + description,
+            dataType: 'json',
+            success: function (data) {
+                $('#final_img').attr("src", data);
+            },
+            error: function () {
+                alert("Page not found");
+            }
+        });
+    }
 
 });

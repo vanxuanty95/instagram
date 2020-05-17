@@ -18,8 +18,6 @@
                 <input type="submit" id="formGenerateImageSubmitButton" name="formGenerateImageSubmitButton" value="Submit">
             </div>
         </form>
-        <div id="generateProgress">
-            <div id="progressBar"></div>
-        </div>
+        <img id="final_img" src="">
     </div>
 </body>
