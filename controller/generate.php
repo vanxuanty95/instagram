@@ -1,7 +1,7 @@
 <?php
 require_once('model/profile.php');
 
-class GenerateController
+class GenerateController extends BaseController
 {
     protected $generationApi = "http://instagram.nakamadressup.com/index.php?controller=profile&action=profile&username=__username&description=__description";
 
@@ -21,15 +21,13 @@ class GenerateController
 
         $googlePagespeedData = file_get_contents("https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=" . $this->createTargetURL($username, $description) . "&screenshot=true");
 
-        //decode json data
         $googlePagespeedData = json_decode($googlePagespeedData, true);
 
-        //screenshot data
         $screenshot = $googlePagespeedData['screenshot']['data'];
         $screenshot = str_replace(array('_', '-'), array('/', '+'), $screenshot);
 
-        //display screenshot image
-        return "<img src=\"data:image/jpeg;base64," . $screenshot . "\" />";
+        $data = array('screenshot' => $screenshot);
+        return  $this->render($data);
     }
 
     function createTargetURL($username, $description)

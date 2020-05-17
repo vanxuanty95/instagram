@@ -38,5 +38,3 @@
     <img id="imageFromCanvas" src="" style="width: 1080px; height: 1080px; display: none;" crossOrigin="anonymous">
     <img id="imageResized" src="" style="width: 1080px; height: 1080px; display: none;" crossOrigin="anonymous">
 </body>
-
-</html>
