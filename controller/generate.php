@@ -29,6 +29,7 @@ class GenerateController extends BaseController
         $screenshot = str_replace(array('_', '-'), array('/', '+'), $screenshot);
 
         $data = array('screenshot' => $screenshot);
+        var_dump($this->createTargetURL($username, $description));
         return  $this->render($data);
     }
 
