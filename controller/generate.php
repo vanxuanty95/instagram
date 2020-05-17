@@ -12,7 +12,7 @@ class GenerateController
     public function generate()
     {
         $profile = ProfileModel::set($_GET['username'], $_GET['description']);
-        
+        phpinfo();
         getImage($profile->username, $profile->description);
     }
 }
