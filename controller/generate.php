@@ -6,6 +6,7 @@ class GenerateController extends BaseController
 {
     protected $hostApi = "http://instagram.nakamadressup.com/";
     protected $generationApi = "index.php?controller=profile&action=profile&username=__username&description=__description";
+    protected $keyapi = "AIzaSyBWV5zDYDRuX1clPEcadJIdriT62ejesiI";
 
     function __construct()
     {
@@ -22,8 +23,8 @@ class GenerateController extends BaseController
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch,CURLOPT_URL,"https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=" . $this->createTargetURL($username, $description));
-        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($ch, CURLOPT_URL, "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=" . $this->createTargetURL($username, $description) . "&key=" . $this->keyapi);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.A.B.C Safari/525.13");
         $googlePagespeedData = curl_exec($ch);
         curl_close($ch);
@@ -32,7 +33,7 @@ class GenerateController extends BaseController
         var_dump($googlePagespeedData);
 
         $data = array('error' => true);
-        if ($googlePagespeedData) {
+        if ($googlePagespeedData["error"]["code"]) {
             $screenshot = $googlePagespeedData['lighthouseResult'];
 
             $data = array('screenshot' => $screenshot, 'error' => false);
