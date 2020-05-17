@@ -25,11 +25,10 @@ class GenerateController extends BaseController
 
         $googlePagespeedData = json_decode($googlePagespeedData, true);
 
-        $screenshot = $googlePagespeedData['screenshot']['data'];
-        $screenshot = str_replace(array('_', '-'), array('/', '+'), $screenshot);
+        var_dump($googlePagespeedData);
+        $screenshot = $googlePagespeedData['lighthouseResult']['final-screenshot']['detail']['data'];
 
         $data = array('screenshot' => $screenshot);
-        var_dump($this->createTargetURL($username, $description));
         return  $this->render($data);
     }
 
