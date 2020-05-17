@@ -2,6 +2,7 @@
     <title>Demo</title>
     <link rel="stylesheet" type="text/css" href="assets/style.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script src="assets/main.js"></script>
 </head>
 

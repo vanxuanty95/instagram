@@ -12,17 +12,22 @@ $(document).ready(function () {
     });
 
     function getInfomation(username, description) {
-        $.ajax({
-            type: 'GET',
-            url: 'http://instagram.nakamadressup.com/index.php?controller=generate&action=generate&username=' + username + "&description=" + description,
-            dataType: 'json',
-            success: function (data) {
-                $('#final_img').attr("src", data);
-            },
-            error: function () {
-                alert("Page not found");
-            }
-        });
+        //let hostting = 'http://instagram.nakamadressup.com/'
+        let hostting = 'http://localhost:41062/www/'
+        let iframe = document.createElement('iframe');
+        iframe.src = hostting + 'index.php?controller=profile&action=profile&username=' + username + "&description=" + description;
+        iframe.onload = function (e) {
+            html2canvas(iframe.contentDocument.documentElement, {
+                scale: 1,
+                allowTaint: true,
+                useCORS: true,
+            }).then(function (canvas) {
+                document.body.removeChild(iframe);
+                document.body.appendChild(canvas);
+            });
+        }
+        // just to hide the iframe
+        iframe.style.cssText = 'position: absolute; opacity:0; z-index: -9999';
+        document.body.appendChild(iframe);
     }
-
 });
