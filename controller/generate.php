@@ -35,6 +35,6 @@ class GenerateController extends BaseController
     function createTargetURL($username, $description)
     {
         $target = str_replace(["__username", "__description"], [$username, $description], $this->generationApi);
-        return $this->hostApi + urlencode($target);
+        return $this->hostApi . urlencode($target);
     }
 }
