@@ -7,6 +7,7 @@ $controllers = array(
 
 if (!array_key_exists($controller, $controllers) || !in_array($action, $controllers[$controller])) {
   $controller = 'home';
+  $action = 'home';
 }
 
 include_once('controller/' . $controller . '.php');

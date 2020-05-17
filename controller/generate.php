@@ -4,7 +4,8 @@ require_once('model/profile.php');
 
 class GenerateController extends BaseController
 {
-    protected $generationApi = "http://instagram.nakamadressup.com/index.php?controller=profile&action=profile&username=__username&description=__description";
+    protected $hostApi = "http://instagram.nakamadressup.com/";
+    protected $generationApi = "index.php?controller=profile&action=profile&username=__username&description=__description";
 
     function __construct()
     {
@@ -34,6 +35,6 @@ class GenerateController extends BaseController
     function createTargetURL($username, $description)
     {
         $target = str_replace(["__username", "__description"], [$username, $description], $this->generationApi);
-        return urlencode($target);
+        return $this->hostApi + urlencode($target);
     }
 }
