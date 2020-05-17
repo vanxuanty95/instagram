@@ -27,17 +27,17 @@ class GenerateController extends BaseController
         curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.A.B.C Safari/525.13");
         $googlePagespeedData = curl_exec($ch);
         curl_close($ch);
+        $googlePagespeedData = json_decode($googlePagespeedData, true);
 
         var_dump($googlePagespeedData);
 
         $data = array('error' => true);
-        if ($googlePagespeedData !== FALSE) {
-            $googlePagespeedData = json_decode($googlePagespeedData, true);
+        if ($googlePagespeedData) {
             $screenshot = $googlePagespeedData['lighthouseResult'];
 
             $data = array('screenshot' => $screenshot, 'error' => false);
         }
-        return $screenshot;
+        return $data;
     }
 
     function createTargetURL($username, $description)
