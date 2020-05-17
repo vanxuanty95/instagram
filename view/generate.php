@@ -3,5 +3,5 @@
 </head>
 
 <body>
-    <img src="data:image/jpeg;base64,<?php echo $screenshot->screenshot; ?>" />"
+    <img src=<?php echo $screenshot->screenshot; ?> />"
 </body>

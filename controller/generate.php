@@ -21,7 +21,7 @@ class GenerateController extends BaseController
     function getImageFromGoogleApi($username, $description)
     {
 
-        $googlePagespeedData = file_get_contents("https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=" . $this->createTargetURL($username, $description) . "&screenshot=true");
+        $googlePagespeedData = file_get_contents("https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=" . $this->createTargetURL($username, $description));
 
         $googlePagespeedData = json_decode($googlePagespeedData, true);
 
