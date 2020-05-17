@@ -2,7 +2,7 @@
 require('vendor/autoload.php');
 
 use JonnyW\PhantomJs\Client;
-$generationApi = "http://instagram.nakamadressup.com/index.php?controller=profile&action=profile&username=__username&description=__description"
+$generationApi = "http://instagram.nakamadressup.com/index.php?controller=profile&action=profile&username=__username&description=__description";
 
 function getImage($username, $description)
 {
