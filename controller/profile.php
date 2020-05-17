@@ -11,8 +11,12 @@ class ProfileController extends BaseController
 
     public function profile()
     {
-        $profile = ProfileModel::set($_GET['username'], $_GET['description']);
-        $data = array('profile' => $profile);
+        if ($_GET['username'] == ""){
+            $data = array('profile' => null);
+        }else{
+            $profile = ProfileModel::set($_GET['username'], $_GET['description']);
+            $data = array('profile' => $profile);
+        }
         $this->render($data);
     }
 }

@@ -26,7 +26,7 @@ class GenerateController extends BaseController
         $googlePagespeedData = json_decode($googlePagespeedData, true);
 
         var_dump($googlePagespeedData);
-        $screenshot = $googlePagespeedData['lighthouseResult']['final-screenshot']['detail']['data'];
+        $screenshot = "test";
 
         $data = array('screenshot' => $screenshot);
         return  $this->render($data);
