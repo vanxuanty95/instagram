@@ -1,4 +1,5 @@
 <?php
+require_once('controller/base.php');
 require_once('model/profile.php');
 
 class GenerateController extends BaseController
