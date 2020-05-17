@@ -1,6 +1,7 @@
 <?php
 require_once('controller/base.php');
 require_once('model/profile.php');
+require_once('service/generate.php');
 
 class GenerateController extends BaseController
 {
@@ -11,14 +12,15 @@ class GenerateController extends BaseController
     public function generate()
     {
         $profile = ProfileModel::set($_GET['username'], $_GET['description']);
-        return $this->getImageFromGoogleApi($profile->username, $profile->description);
+        generateImage($this->createTargetURL($profile->username, $profile->description));
+        //return $this->getImageFromGoogleApi($profile->username, $profile->description);
     }
 
     function getImageFromGoogleApi($username, $description)
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_URL, "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=" . $this->createTargetURL($username, $description) . "&key=" . $this->keyapi);
+        curl_setopt($ch, CURLOPT_URL, "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?screenshot=true&url=" . $this->createTargetURL($username, $description) . "&key=" . $this->keyapi);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $googlePagespeedData = curl_exec($ch);
         curl_close($ch);

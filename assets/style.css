@@ -146,19 +146,6 @@ p {
 	background-position: center;
 }
 
-/* #imageGenerated {
-    display: none;
-} */
-
-/* #imageGenerated {
-	width: 500px !important;
-	height: auto !important;
-} */
-
-img {
-    width: 200px;
-}
-
 #generateProgress {
     width: 50%;
     background-color: grey;
