@@ -30,7 +30,7 @@ class GenerateController extends BaseController
         curl_close($ch);
         $googlePagespeedData = json_decode($googlePagespeedData, true);
         $data = array('error' => true);
-        if (!$googlePagespeedData["error"]) {
+        if ($googlePagespeedData["error"] == Null) {
             $screenshot = $googlePagespeedData['lighthouseResult']['audits']['final-screenshot']['details']['data'];
             $data = array('screenshot' => $screenshot, 'error' => false);
         }
