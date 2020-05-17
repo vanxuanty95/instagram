@@ -59,7 +59,7 @@ $(document).ready(function () {
                 $('#follower_count').text(data.graphql.user.edge_followed_by.count);
                 $('#following_count').text(data.graphql.user.edge_follow.count);
                 setMostRecentPhotos(data.graphql.user.edge_owner_to_timeline_media.edges);
-                convertToImage();
+                //convertToImage();
             },
             error: function () {
                 alert("Page not found");

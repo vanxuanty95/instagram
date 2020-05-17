@@ -8,11 +8,6 @@ class GenerateController extends BaseController
     protected $generationApi = "index.php?controller=profile&action=profile&username=__username&description=__description";
     protected $keyapi = "AIzaSyBWV5zDYDRuX1clPEcadJIdriT62ejesiI";
 
-    function __construct()
-    {
-        $this->file = 'generate';
-    }
-
     public function generate()
     {
         $profile = ProfileModel::set($_GET['username'], $_GET['description']);
