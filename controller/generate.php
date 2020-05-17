@@ -29,13 +29,9 @@ class GenerateController extends BaseController
         $googlePagespeedData = curl_exec($ch);
         curl_close($ch);
         $googlePagespeedData = json_decode($googlePagespeedData, true);
-
-        var_dump($googlePagespeedData);
-
         $data = array('error' => true);
-        if ($googlePagespeedData["error"]["code"]) {
-            $screenshot = $googlePagespeedData['lighthouseResult'];
-
+        if (!$googlePagespeedData["error"]) {
+            $screenshot = $googlePagespeedData['lighthouseResult']['audits']['final-screenshot']['details']['data'];
             $data = array('screenshot' => $screenshot, 'error' => false);
         }
         return $data;
