@@ -1,6 +1,5 @@
 <?php
 require_once('model/profile.php');
-require_once('service/generate.php');
 
 class GenerateController
 {
