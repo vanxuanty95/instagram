@@ -4,6 +4,7 @@
 </head>
 
 <body>
+    <?php $profile; ?>
     <div class="desibox">
         <div class="blurbg" style="background-image: url(https://i.imgur.com/ov597Yv.jpg)"></div>
         <div class="frame">

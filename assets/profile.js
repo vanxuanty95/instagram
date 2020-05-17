@@ -53,7 +53,6 @@ $(document).ready(function () {
                 $('#user_name').text("@" + username);
                 $('#description').text("\"" + description + "\"");
                 $('#author_name').text(data.graphql.user.full_name);
-                $('#profile_image_img').attr("src", data.graphql.user.profile_pic_url_hd);
                 $('#profile_image').attr("style", "background-image: url(" + data.graphql.user.profile_pic_url_hd + ")");
                 $('#post_count').text(data.graphql.user.edge_owner_to_timeline_media.count);
                 $('#follower_count').text(data.graphql.user.edge_followed_by.count);

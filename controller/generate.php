@@ -26,6 +26,7 @@ class GenerateController extends BaseController
 
         if ($googlePagespeedData["error"] == null) {
             $screenshot = $googlePagespeedData['lighthouseResult']['audits']['final-screenshot']['details']['data'];
+            $screenshot = str_replace(array('_','-'), array('/','+'), $screenshot);
             $data = array($screenshot);
         } else {
             $data = array('error' => $googlePagespeedData["error"]);
