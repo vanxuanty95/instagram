@@ -23,13 +23,16 @@ class GenerateController extends BaseController
 
         $googlePagespeedData = file_get_contents("https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=" . $this->createTargetURL($username, $description));
 
-        $googlePagespeedData = json_decode($googlePagespeedData, true);
+        $data = array('error' => true);
+        if ($googlePagespeedData !== FALSE) {
+            $googlePagespeedData = json_decode($googlePagespeedData, true);
 
-        var_dump($googlePagespeedData);
-        $screenshot = "test";
+            var_dump($googlePagespeedData);
+            $screenshot = $googlePagespeedData['lighthouseResult'];
 
-        $data = array('screenshot' => $screenshot);
-        return  $this->render($data);
+            $data = array('screenshot' => $screenshot, 'error' => false);
+        }
+        return $screenshot;
     }
 
     function createTargetURL($username, $description)
