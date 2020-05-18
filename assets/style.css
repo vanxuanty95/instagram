@@ -146,6 +146,11 @@ p {
 	background-position: center;
 }
 
+#imageGenerated{
+	width: 100% !important;
+	height: auto !important;
+}
+
 #generateProgress {
     width: 50%;
     background-color: grey;

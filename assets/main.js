@@ -22,6 +22,7 @@ $(document).ready(function () {
                 allowTaint: true,
                 useCORS: true,
             }).then(function (canvas) {
+                canvas.id = "imageGenerated";
                 document.body.removeChild(iframe);
                 document.body.appendChild(canvas);
                 $("#formGenerateImageSubmitButton").attr("disabled", false);
