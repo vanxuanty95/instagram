@@ -17,7 +17,7 @@
                     <div class="avatar" style="background-image: url(<?php echo $profile["profile_image"] ?>)"></div>
                     <div class="detail">
                         <h1><?php echo $profile["user_name"]; ?></h1>
-                        <h3><?php echo $profile["author_name"]; ?>e</h3>
+                        <h3><?php echo $profile["author_name"]; ?></h3>
                         <p><?php echo $profile["description"]; ?></p>
                     </div>
                     <div class="gallery">

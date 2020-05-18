@@ -24,6 +24,7 @@ $(document).ready(function () {
             }).then(function (canvas) {
                 document.body.removeChild(iframe);
                 document.body.appendChild(canvas);
+                $("#formGenerateImageSubmitButton").attr("disabled", false);
             });
         }
         // just to hide the iframe
