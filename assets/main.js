@@ -13,7 +13,7 @@ $(document).ready(function () {
     });
 
     function resetVariable() {
-        $("#imageGenerated").remove;
+        $("#imageGenerated").remove();
     }
 
     function getInfomation(username, description) {
