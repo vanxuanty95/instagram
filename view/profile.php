@@ -18,7 +18,9 @@
                     <div class="detail">
                         <h1><?php echo $profile["user_name"]; ?></h1>
                         <h3><?php echo $profile["author_name"]; ?></h3>
-                        <p><?php echo $profile["description"]; ?></p>
+                        <?php if (strlen($profile["description"]) > 2) { ?>
+                            <p><?php echo $profile["description"]; ?></p>
+                        <?php } ?>
                     </div>
                     <div class="gallery">
                         <?php foreach ($profile["mostRecents"] as $image) { ?>

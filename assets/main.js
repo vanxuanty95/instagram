@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $("#formGenerateImage").submit(function (event) {
         event.preventDefault();
+        resetVariable();
         let username = $('#username_input').val().trim();
         let decription = $('#description_input').val().trim();
         if (username == "") {
@@ -11,8 +12,12 @@ $(document).ready(function () {
         getInfomation(username, decription);
     });
 
+    function resetVariable() {
+        $("#imageGenerated").remove;
+    }
+
     function getInfomation(username, description) {
-        let hostting = 'http://instagram.nakamadressup.com/'
+        let hostting = 'https://instagram.nakamadressup.com/'
         //let hostting = 'http://localhost:41062/www/'
         let iframe = document.createElement('iframe');
         iframe.src = hostting + 'index.php?controller=profile&action=profile&username=' + username + "&description=" + description;
