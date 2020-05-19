@@ -17,7 +17,12 @@ class ProfileController extends BaseController
             $data = array("error" => "username is empty");
         } else {
             $profile = ProfileModel::set($_GET['username'], $_GET['description']);
-            $data = array('profile' => $this->getImageFromInstagramApi($profile->username, $profile->description));
+            $result = $this->getImageFromInstagramApi($profile->username, $profile->description);
+            if (!empty($result["error"])) {
+                $data = array("error" => $result["error"]);
+            } else {
+                $data = array('profile' => $result);
+            }
         }
         $this->render($data);
     }
@@ -32,7 +37,7 @@ class ProfileController extends BaseController
         $mostRecents = array();
 
         $instagramData = json_decode($this->curl_get_contents("https://www.instagram.com/" . $username . "/?__a=1"));
-        if ($instagramData != null) {
+        if ($instagramData != null && !empty(get_object_vars($instagramData))) {
             $edgesArray = $instagramData->graphql->user->edge_owner_to_timeline_media->edges;
             $edgesIdx = 0;
             $maximumLoopArray = 0;

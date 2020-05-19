@@ -17,8 +17,8 @@ $(document).ready(function () {
     }
 
     function getInfomation(username, description) {
-        let hostting = 'https://instagram.nakamadressup.com/'
-        //let hostting = 'http://localhost:41062/www/'
+        let hostting = 'https://instagram.nakamadressup.com/';
+        //let hostting = 'http://localhost:41062/www/';
         let iframe = document.createElement('iframe');
         iframe.src = hostting + 'index.php?controller=profile&action=profile&username=' + username + "&description=" + description;
         iframe.onload = function (e) {
